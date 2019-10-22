@@ -46,7 +46,7 @@ python wsgi.py
 ## Road Map
 
 * Tests. Lots of tests.
-* Password hashing. Use PassLib?
+* Authentication + Password hashing. Use PassLib?
 * Site UI, including forms to add/remove/update Users, Books, Authors, Wishlists
 * Additional error handling 
 
