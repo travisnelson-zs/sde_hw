@@ -46,9 +46,13 @@ python wsgi.py
 ## Road Map
 
 * Tests. Lots of tests.
-* Authentication + Password hashing. Use PassLib?
+* Hash passwords.
+* Authentication.
+    * Basic HTTP - Flask-HTTPAuth? https://pypi.org/project/Flask-HTTPAuth/
+    * Token - itsdangerous? https://pythonhosted.org/itsdangerous/
 * Site UI, including forms to add/remove/update Users, Books, Authors, Wishlists
 * Additional error handling 
+* Rate limiting. Flask-Limiter? https://flask-limiter.readthedocs.io/en/stable/
 
 
 ## Write Up
