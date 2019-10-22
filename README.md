@@ -43,6 +43,13 @@ From the wishlist_app folder, run the app:
 python wsgi.py
 ```
 
+## Road Map
+
+* Tests. Lots of tests.
+* Site UI, including forms to add/remove/update Users, Books, Authors, Wishlists
+* Additional error handling 
+
+
 ## Write Up
 
 This assignment has been a huge learning experience for me. While I both regularly use API’s and query tables, I’d never previously created either.  I started by reading up on sqlite. I knew I’d need a User table and a Book table, with columns representing the attributes laid out in the assignment. As I continued reading about databases, the term ‘normalization’ came up a lot. I wanted to design my tables correctly, and a design technique that seeks to reduce redundancy and dependency of data seemed like the right way to go. That led me to create two additional tables: ‘authors’ and ‘wishlists’. Once I had my tables created, I wanted to populate them with some initial data, so they’d be more fun to play with. I made a csv full of sample data for each table and wrapped the open/read/insert process in a function. I put all associated files into a folder that I turned into a package. This allowed me to be able to create a populated book-wishlist database on command.
