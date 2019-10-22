@@ -21,7 +21,7 @@ def get_users():
     response = {
         'users': [u.to_dict() for u in users]
     }
-    return response
+    return jsonify(response)
 
 
 @mod.route('/users/<int:id>', methods=['GET'])
@@ -29,7 +29,7 @@ def get_user(id):
     """ Return a single, targeted user"""
     try:
         user = db.session.query(User).filter(User.id == id).first()
-        return user.to_dict()
+        return jsonify(user.to_dict())
     except AttributeError as e:
         return invalid_get_target()
 
