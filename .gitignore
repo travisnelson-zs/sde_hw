@@ -19,3 +19,4 @@ __pycache__
 book_wishlists.db
 venv
 .flaskenv 
+.pytest_cache
