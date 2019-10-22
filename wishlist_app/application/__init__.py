@@ -2,10 +2,10 @@ from flask import Flask
 
 
 def create_app():
-    """Initialize the core application."""
+    """Initialize the core application"""
     from .models import db
     app = Flask(__name__)
-    app.config.from_object('config.Config')
+    app.config.from_object('config.Testing_Config')
     db.init_app(app)
 
     with app.app_context():

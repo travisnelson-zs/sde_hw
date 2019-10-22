@@ -3,19 +3,24 @@
 {% block title %} Read a Book.{% endblock %}
 {% block content %}
 <div>
-    <h1>Users</h1>
-    <ul>
-    {% for user in users %}
-    <li>{{ user.first_name }} {{ user.last_name }} - {{ user.email}}</li>
-    {% endfor %}
-    </ul>
+    <h1>Read a Book.</h1>
 </div>
-<div>
-    <h1>Books</h1>
-    <ul>
-    {% for book in books %}
-    <li>{{ book.title}} {{ book.isbn }} - {{ book.year_published}}</li>
-    {% endfor %}
-    </ul>
+<div id="container">
+    <div id="item1">
+        <h2>Users</h2>
+        <ul>
+        {% for user in users %}
+        <li>{{user.id}} - {{ user.first_name }} {{ user.last_name }} - {{ user.email}}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div id="item2">
+        <h2>Books</h2>
+        <ul>
+        {% for book in books %}
+        <li>{{ book[0].title}} - {{ book[1].first_name }} {{ book[1].last_name}} - {{ book[0].isbn}} - {{ book[0].year_published}}</li>
+        {% endfor %}
+        </ul>
+    </div>
 </div>
 {% endblock %}
