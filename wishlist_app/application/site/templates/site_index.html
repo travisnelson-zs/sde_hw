@@ -2,25 +2,173 @@
 
 {% block title %} Read a Book.{% endblock %}
 {% block content %}
-<div>
+<div id="header">
     <h1>Read a Book.</h1>
 </div>
-<div id="container">
-    <div id="item1">
-        <h2>Users</h2>
-        <ul>
-        {% for user in users %}
-        <li>{{user.id}} - {{ user.first_name }} {{ user.last_name }} - {{ user.email}}</li>
-        {% endfor %}
-        </ul>
+<div id="main_body">
+    <div id="left">
+        <div id="site_readers">
+            <table>
+                <caption>Readers</caption>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+                {% for user in users %}
+                <tr>
+                    <td>{{user.id}} </td>
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.email}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div id="site_books">
+            <table>
+                <caption>Books</caption>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Author ID</th>
+                    <th>ISBN</th>
+                    <th>Year Published</th>
+                </tr>
+                {% for book in books %}
+                <tr>
+                    <td>{{book[0].id}} </td>
+                    <td>{{book[0].title}}</td>
+                    <td>{{ book[1].first_name }} {{ book[1].last_name}}</td>
+                    <td>{{ book[1].id}}</td>
+                    <td>{{ book[0].isbn}}</td>
+                    <td>{{ book[0].year_published}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>    
     </div>
-    <div id="item2">
-        <h2>Books</h2>
-        <ul>
-        {% for book in books %}
-        <li>{{ book[0].title}} - {{ book[1].first_name }} {{ book[1].last_name}} - {{ book[0].isbn}} - {{ book[0].year_published}}</li>
-        {% endfor %}
-        </ul>
+    <div id="right">
+        <h2>How to Use the API</h2>
+        <p>For this project, API endpoints have the URI prefix /api/</p>
+        <p>So all API calls will begin like this:</p>
+        <p>http://127.0.0.1:5000/api/ or http://localhost:5000/api/</p>
+        
+        <table>
+            <caption>Users</caption>
+            <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Structure</th>
+                <th>HTTP Method</th>
+            </tr>
+            <tr>
+                <td>Get Users</td>
+                <td>Retrieve all users</td>
+                <td>/api/users</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Get User</td>
+                <td>Retrieve a single, targeted user</td>
+                <td>/api/users/&lt;int:id&gt;</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Create User</td>
+                <td>Create a new user </td>
+                <td>/api/users</td>
+                <td>POST</td>
+            </tr>
+            <tr>
+                <td>Edit User</td>
+                <td>Edit an existing user </td>
+                <td>/api/users/&lt;int:id&gt;</td>
+                <td>PUT</td>
+            </tr>
+        </table>
+        <table>
+            <caption>Books</caption>
+            <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Structure</th>
+                <th>HTTP Method</th>
+            </tr>
+            <tr>
+                <td>Get Books</td>
+                <td>Retrieve all books</td>
+                <td>/api/books</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Get Book</td>
+                <td>Retrieve a single, targeted book</td>
+                <td>/api/books/&lt;int:book_id&gt;</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Create Book</td>
+                <td>Create a new book </td>
+                <td>/api/books/</td>
+                <td>POST</td>
+            </tr>
+        </table>
+        <table>
+            <caption>Authors</caption>
+            <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Structure</th>
+                <th>HTTP Method</th>
+            </tr>
+            <tr>
+                <td>Get Authors</td>
+                <td>Retrieve all authors</td>
+                <td>/api/authors</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Get Author</td>
+                <td>Retrieve a single, targeted author</td>
+                <td>/api/authors/&lt;int:author_id&gt;</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Create Author</td>
+                <td>Create a new author </td>
+                <td>/api/authors</td>
+                <td>POST</td>
+            </tr>
+        </table>
+        <table>
+            <caption>Wishlists</caption>
+            <tr>
+                <th>Action</th>
+                <th>Description</th>
+                <th>Structure</th>
+                <th>HTTP Method</th>
+            </tr>
+            <tr>
+                <td>Get Wishlists</td>
+                <td>Retrieve all book wishlists</td>
+                <td>/api/wishlists</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td>Add Book to Wishlist</td>
+                <td>Add a book to a user's wishlist</td>
+                <td>/api/users/&lt;int:user_id&gt;/wishlist/&lt;int:book_id&gt;</td>
+                <td>POST</td>
+            </tr>
+            <tr>
+                <td>Remove Book From Wishlist</td>
+                <td>Remove a book from a user's wishlist</td>
+                <td>/api/users/&lt;int:user_id&gt;/wishlist/&lt;int:book_id&gt;</td>
+                <td>POST</td>
+            </tr>
+        </table>
     </div>
 </div>
 {% endblock %}
+

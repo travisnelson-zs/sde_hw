@@ -1,10 +1,4 @@
-#body_wrapper {
-    display: grid;
-    grid-template-rows: 2fr, 8fr;
-}
-
-#container {
+#main_body {
     display:grid;
-    grid-template-columns: 2fr, 8fr;
+    grid-template-columns: .45fr .6fr;
 }
-

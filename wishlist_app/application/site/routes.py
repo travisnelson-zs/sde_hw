@@ -4,7 +4,7 @@ from ..models import db, Wishlist, User, Book, Author
 # Set up a Blueprint
 mod = Blueprint('site', __name__,
                 template_folder='templates',
-                static_folder='site/static')
+                static_folder='static')
 
 
 @mod.route('/')

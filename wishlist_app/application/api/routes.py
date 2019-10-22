@@ -99,6 +99,8 @@ def create_book():
     if db.session.query(Book).filter_by(isbn=data['isbn']).first() or \
        db.session.query(Book).filter_by(title=data['title']).first():
         return bad_request('That book already exists in this database.')
+    if db.session.query(Author).filter_by(id=data['author_id']).first is None:
+        return bad_request("That author's not in our system. Add the author first.")
     book = Book()
     book.from_dict(data)
     db.session.add(book)
